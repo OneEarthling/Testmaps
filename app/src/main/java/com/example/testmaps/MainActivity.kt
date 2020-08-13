@@ -1,23 +1,25 @@
 package com.example.testmaps
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(findViewById(R.id.toolbar))
+        getSupportFragmentManager().beginTransaction()
+            .add(android.R.id.content, FirstFragment()).commit()
 
-        findViewById<FloatingActionButton>(R.id.fab).setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+//        val mFragment = FirstFragment()
+//        val fragmentManager: FragmentManager = supportFragmentManager
+//        fragmentManager.beginTransaction()
+//            .replace(R.id.container, mFragment).commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
